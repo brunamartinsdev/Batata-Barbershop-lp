@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaInstagram } from "react-icons/fa6";
 import { useState } from "react";
@@ -17,15 +18,13 @@ export function Hero() {
     const abrirModal = () => setModalAberto(true);
     const fecharModal = () => setModalAberto(false);
 
-
     return (
         <section
             id="home"
-            className="relative overflow-hidden bg-black px-6 pb-6 pt-14 text-white md:px-10 md:pb-8 md:pt-20 lg:px-16"
+            className="relative overflow-hidden bg-black px-6 py-6 text-white md:px-10 md:py-6 lg:px-16"
         >
-            <div className="mx-auto grid min-h-[calc(75svh-40px)] max-w-7xl grid-cols-1 items-center gap-6 md:grid-cols-[1.08fr_0.92fr] md:gap-8">
-                {/* TEXTO */}
-                <div className="order-2 flex flex-col items-center justify-center text-center md:order-1 md:items-start md:text-left">
+            <div className="mx-auto grid min-h-[72svh] max-w-7xl grid-cols-1 items-center gap-6 md:min-h-[74svh] md:grid-cols-[1.05fr_0.95fr] md:gap-8">
+                <div className="order-1 flex flex-col items-center justify-center text-center md:order-1 md:items-start md:text-left">
                     <motion.div
                         variants={fadeUp}
                         initial="hidden"
@@ -38,7 +37,7 @@ export function Hero() {
                             alt="Batata Barber Shop & Tattoo"
                             width={120}
                             height={120}
-                            className="h-auto w-14 object-contain sm:w-16 md:w-20"
+                            className="h-auto w-14 object-contain sm:w-16 md:w-18 lg:w-20"
                             priority
                         />
                     </motion.div>
@@ -48,8 +47,8 @@ export function Hero() {
                         initial="hidden"
                         animate="visible"
                         transition={{ duration: 0.65, delay: 0.08, ease: "easeOut" }}
-                        className="mb-3 max-w-[12ch] font-black uppercase leading-[0.88] tracking-tighter text-[#A2E317]"
-                        style={{ fontSize: "clamp(1.7rem, 4.8vw, 4.6rem)" }}
+                        className="mb-4 max-w-[12ch] font-black uppercase leading-[0.9] tracking-tight text-[#A2E317]"
+                        style={{ fontSize: "clamp(2rem, 5vw, 4.8rem)" }}
                     >
                         Novo estilo, atitude e personalidade
                     </motion.h1>
@@ -86,18 +85,22 @@ export function Hero() {
                             Agendar
                         </motion.button>
 
-                        <motion.a
-                            href="#services"
+                        <motion.div
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex w-full min-w-[150px] items-center justify-center border-2 border-white bg-white px-6 py-3 text-[11px] font-black uppercase tracking-[0.22em] text-black transition duration-300 hover:border-[#A2E317] hover:bg-[#A2E317] sm:w-auto md:px-8 md:py-3.5 md:text-xs"
-                            style={{
-                                clipPath:
-                                    "polygon(12% 0, 100% 0, 100% 70%, 88% 100%, 0 100%, 0 30%)",
-                            }}
+                            className="w-full sm:w-auto"
                         >
-                            Serviços
-                        </motion.a>
+                            <Link
+                                href="#services"
+                                className="flex w-full min-w-[150px] items-center justify-center border-2 border-white bg-white px-6 py-3 text-[11px] font-black uppercase tracking-[0.22em] text-black transition duration-300 hover:border-[#A2E317] hover:bg-[#A2E317] sm:w-auto md:px-8 md:py-3.5 md:text-xs"
+                                style={{
+                                    clipPath:
+                                        "polygon(12% 0, 100% 0, 100% 70%, 88% 100%, 0 100%, 0 30%)",
+                                }}
+                            >
+                                Serviços
+                            </Link>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
@@ -123,47 +126,50 @@ export function Hero() {
                     </motion.div>
                 </div>
 
-                {/* VIDEO */}
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
                     animate="visible"
                     transition={{ duration: 0.75, delay: 0.18, ease: "easeOut" }}
-                    className="order-1 flex w-full items-center justify-center md:order-2 md:justify-end"
+                    className="order-2 flex w-full items-center justify-center md:order-2 md:justify-end"
                 >
-                    <div className="relative w-full max-w-[180px] sm:max-w-[210px] md:max-w-[280px] lg:max-w-[330px]">
-                        <div className="pointer-events-none absolute -right-2 -top-2 z-20 h-7 w-7 border-r-2 border-t-2 border-[#A2E317] md:-right-3 md:-top-3 md:h-10 md:w-10 md:border-r-3 md:border-t-3" />
-                        <div className="pointer-events-none absolute -bottom-2 -left-2 z-20 h-7 w-7 border-b-2 border-l-2 border-[#A2E317] md:-bottom-3 md:-left-3 md:h-10 md:w-10 md:border-b-3 md:border-l-3" />
+                    <div className="relative flex w-full justify-center md:justify-end">
+                        <div className="absolute h-[280px] w-[220px] rounded-full bg-[#A2E317]/10 blur-3xl md:h-[360px] md:w-[280px]" />
 
-                        <motion.div
-                            whileHover={{ scale: 1.015 }}
-                            className="relative w-full overflow-hidden bg-zinc-900 shadow-2xl"
-                            style={{
-                                clipPath:
-                                    "polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)",
-                                aspectRatio: "3 / 4.2",
-                            }}
-                        >
-                            <video
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="h-full w-full object-cover brightness-75 transition duration-500 md:brightness-55 md:hover:brightness-100"
+                        <div className="relative w-full max-w-[220px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px]">
+                            <div className="pointer-events-none absolute -right-2 -top-2 z-20 h-8 w-8 border-r-2 border-t-2 border-[#A2E317] md:-right-3 md:-top-3 md:h-10 md:w-10" />
+                            <div className="pointer-events-none absolute -bottom-2 -left-2 z-20 h-8 w-8 border-b-2 border-l-2 border-[#A2E317] md:-bottom-3 md:-left-3 md:h-10 md:w-10" />
+
+                            <motion.div
+                                whileHover={{ scale: 1.015 }}
+                                className="relative mx-auto w-full overflow-hidden bg-zinc-900 shadow-2xl"
+                                style={{
+                                    clipPath:
+                                        "polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)",
+                                }}
                             >
-                                <source src="/videos/barbearia.mp4" type="video/mp4" />
-                            </video>
-                        </motion.div>
+                                <div className="relative aspect-[9/14] max-h-[48vh] min-h-[280px] w-full md:max-h-[52vh]">
+                                    <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        className="h-full w-full object-cover brightness-75 transition duration-500 md:brightness-60 md:hover:brightness-100"
+                                    >
+                                        <source src="/videos/barbearia.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
                 </motion.div>
             </div>
 
-            {/* SETA */}
             <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.45, ease: "easeOut" }}
-                className="mt-4 flex justify-center md:mt-5"
+                className="mt-2 flex justify-center md:mt-3"
             >
                 <a
                     href="#services"

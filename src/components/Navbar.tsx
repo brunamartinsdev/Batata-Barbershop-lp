@@ -9,9 +9,13 @@ import { AgendarModal } from "./AgendarModal";
 const links = [
     { id: "home", label: "Home" },
     { id: "services", label: "Serviços" },
+    { id: "produtos", label: "Produtos" },
+    { id: "equipe", label: "Equipe" },
     { id: "about", label: "Sobre" },
     { id: "contact", label: "Contato" },
 ];
+
+const HEADER_OFFSET = 96;
 
 export function Navbar() {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -31,48 +35,79 @@ export function Navbar() {
         setModalAberto(false);
     };
 
+    const navegarParaSecao = (id: string) => {
+        const secao = document.getElementById(id);
+
+        if (!secao) return;
+
+        const top =
+            secao.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+        setSecaoAtiva(id);
+        setMenuAberto(false);
+
+        window.history.pushState(null, "", `#${id}`);
+        window.scrollTo({
+            top,
+            behavior: "smooth",
+        });
+    };
+
     useEffect(() => {
-        const secoes = links
-            .map((link) => document.getElementById(link.id))
-            .filter((secao): secao is HTMLElement => secao !== null);
+        const atualizarSecaoAtiva = () => {
+            const secoes = links
+                .map((link) => document.getElementById(link.id))
+                .filter((secao): secao is HTMLElement => secao !== null);
 
-        if (!secoes.length) return;
+            if (!secoes.length) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visiveis = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            const posicaoScroll = window.scrollY + HEADER_OFFSET + 120;
 
-                if (visiveis.length > 0) {
-                    setSecaoAtiva(visiveis[0].target.id);
+            let secaoAtual = links[0].id;
+
+            for (const secao of secoes) {
+                const topo = secao.offsetTop;
+                const base = topo + secao.offsetHeight;
+
+                if (posicaoScroll >= topo && posicaoScroll < base) {
+                    secaoAtual = secao.id;
+                    break;
                 }
-            },
-            {
-                root: null,
-                rootMargin: "-20% 0px -45% 0px",
-                threshold: [0.2, 0.35, 0.5, 0.65],
-            }
-        );
 
-        secoes.forEach((secao) => observer.observe(secao));
+                if (posicaoScroll >= topo) {
+                    secaoAtual = secao.id;
+                }
+            }
+
+            setSecaoAtiva(secaoAtual);
+        };
+
+        atualizarSecaoAtiva();
+
+        window.addEventListener("scroll", atualizarSecaoAtiva, { passive: true });
+        window.addEventListener("resize", atualizarSecaoAtiva);
+        window.addEventListener("load", atualizarSecaoAtiva);
 
         return () => {
-            secoes.forEach((secao) => observer.unobserve(secao));
-            observer.disconnect();
+            window.removeEventListener("scroll", atualizarSecaoAtiva);
+            window.removeEventListener("resize", atualizarSecaoAtiva);
+            window.removeEventListener("load", atualizarSecaoAtiva);
         };
     }, []);
 
     const linkDesktopClass = (id: string) =>
-        `relative pb-2 transition duration-300 ${secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
+        `relative pb-2 transition duration-300 ${
+            secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
         }`;
 
     const underlineClass = (id: string) =>
-        `absolute bottom-0 left-0 h-[2px] bg-[#A2E317] shadow-[0_0_8px_#A2E317] transition-all duration-300 ${secaoAtiva === id ? "w-full opacity-100" : "w-0 opacity-0"
+        `absolute bottom-0 left-0 h-[2px] bg-[#A2E317] shadow-[0_0_8px_#A2E317] transition-all duration-300 ${
+            secaoAtiva === id ? "w-full opacity-100" : "w-0 opacity-0"
         }`;
 
     const linkMobileClass = (id: string) =>
-        `py-3 transition duration-300 ${secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
+        `py-3 transition duration-300 ${
+            secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
         }`;
 
     return (
@@ -80,13 +115,21 @@ export function Navbar() {
             <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/90 backdrop-blur">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                     <div className="flex items-center gap-3">
-                        <Image
-                            src="/images/logo-batata.PNG"
-                            alt="Batata Barber Shop"
-                            width={80}
-                            height={80}
-                            className="h-14 w-auto object-contain"
-                        />
+                        <Link
+                            href="#home"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navegarParaSecao("home");
+                            }}
+                        >
+                            <Image
+                                src="/images/logo-batata.PNG"
+                                alt="Batata Barber Shop"
+                                width={80}
+                                height={80}
+                                className="h-14 w-auto object-contain"
+                            />
+                        </Link>
                     </div>
 
                     <nav className="hidden items-center gap-8 text-sm font-semibold uppercase tracking-wide md:flex">
@@ -95,6 +138,10 @@ export function Navbar() {
                                 key={link.id}
                                 href={`#${link.id}`}
                                 className={linkDesktopClass(link.id)}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navegarParaSecao(link.id);
+                                }}
                             >
                                 {link.label}
                                 <span className={underlineClass(link.id)} />
@@ -127,8 +174,9 @@ export function Navbar() {
                 </div>
 
                 <div
-                    className={`overflow-hidden border-t border-white/10 bg-black transition-all duration-300 md:hidden ${menuAberto ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                        }`}
+                    className={`overflow-hidden border-t border-white/10 bg-black transition-all duration-300 md:hidden ${
+                        menuAberto ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
                     <nav className="flex flex-col items-center justify-center px-6 py-6 text-sm font-semibold uppercase tracking-widest">
                         {links.map((link) => (
@@ -136,7 +184,10 @@ export function Navbar() {
                                 key={link.id}
                                 href={`#${link.id}`}
                                 className={linkMobileClass(link.id)}
-                                onClick={() => setMenuAberto(false)}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navegarParaSecao(link.id);
+                                }}
                             >
                                 {link.label}
                             </Link>
