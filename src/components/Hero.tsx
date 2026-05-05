@@ -33,7 +33,7 @@ export function Hero() {
                         className="mb-3 flex w-full justify-center md:justify-start"
                     >
                         <Image
-                            src="/images/logos/logo-batata.PNG"
+                            src="/images/logos/logo-batata.webp"
                             alt="Batata Barber Shop & Tattoo"
                             width={120}
                             height={120}
