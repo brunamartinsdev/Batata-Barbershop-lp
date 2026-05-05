@@ -247,8 +247,8 @@ export function Servicos() {
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                     whileHover={{ y: -6, scale: 1.01 }}
                                     className={`relative flex h-full overflow-hidden border p-6 transition duration-300 ${pacote.destaque
-                                            ? "border-[#A2E317] bg-[#A2E317] text-black shadow-[0_0_30px_rgba(162,227,23,0.18)]"
-                                            : "border-white/10 bg-black text-white hover:border-[#A2E317]/60"
+                                        ? "border-[#A2E317] bg-[#A2E317] text-black shadow-[0_0_30px_rgba(162,227,23,0.18)]"
+                                        : "border-white/10 bg-black text-white hover:border-[#A2E317]/60"
                                         }`}
                                 >
                                     <div className="flex h-full w-full flex-col">
@@ -348,7 +348,13 @@ export function Servicos() {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-[#A2E317] to-transparent shadow-[0_0_15px_#A2E317]" />
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317]/40 to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317] to-transparent blur-md opacity-60" />
+
+                <div className="absolute top-0 left-[-30%] h-full w-[30%] bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shine_3s_linear_infinite]" />
+            </div>
 
             <AgendarModal aberto={modalAberto} onFechar={fecharModal} />
         </section>

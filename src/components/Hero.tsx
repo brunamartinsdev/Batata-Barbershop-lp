@@ -33,7 +33,7 @@ export function Hero() {
                         className="mb-3 flex w-full justify-center md:justify-start"
                     >
                         <Image
-                            src="/images/logo-batata.PNG"
+                            src="/images/logos/logo-batata.PNG"
                             alt="Batata Barber Shop & Tattoo"
                             width={120}
                             height={120}
@@ -169,7 +169,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.45, ease: "easeOut" }}
-                className="mt-2 flex justify-center md:mt-3"
+                className="mt-6 flex justify-center md:mt-3"
             >
                 <a
                     href="#services"
@@ -195,7 +195,15 @@ export function Hero() {
                 </a>
             </motion.div>
 
-            <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-[#A2E317] to-transparent shadow-[0_0_15px_#A2E317]" />
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[3px] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317] to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317] to-transparent blur-md opacity-70" />
+
+                <div className="absolute inset-0 bg-[#A2E317] opacity-20 blur-xl" />
+
+                <div className="absolute top-0 left-[-40%] h-full w-[40%] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-[shine_4s_linear_infinite]" />
+            </div>
             <AgendarModal aberto={modalAberto} onFechar={fecharModal} />
         </section>
     );

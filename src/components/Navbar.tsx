@@ -9,8 +9,8 @@ import { AgendarModal } from "./AgendarModal";
 const links = [
     { id: "home", label: "Home" },
     { id: "services", label: "Serviços" },
-    { id: "produtos", label: "Produtos" },
     { id: "equipe", label: "Equipe" },
+    { id: "produtos", label: "Produtos" },
     { id: "about", label: "Sobre" },
     { id: "contact", label: "Contato" },
 ];
@@ -96,23 +96,20 @@ export function Navbar() {
     }, []);
 
     const linkDesktopClass = (id: string) =>
-        `relative pb-2 transition duration-300 ${
-            secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
+        `relative pb-2 transition duration-300 ${secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
         }`;
 
     const underlineClass = (id: string) =>
-        `absolute bottom-0 left-0 h-[2px] bg-[#A2E317] shadow-[0_0_8px_#A2E317] transition-all duration-300 ${
-            secaoAtiva === id ? "w-full opacity-100" : "w-0 opacity-0"
+        `absolute bottom-0 left-0 h-[2px] bg-[#A2E317] shadow-[0_0_8px_#A2E317] transition-all duration-300 ${secaoAtiva === id ? "w-full opacity-100" : "w-0 opacity-0"
         }`;
 
     const linkMobileClass = (id: string) =>
-        `py-3 transition duration-300 ${
-            secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
+        `py-3 transition duration-300 ${secaoAtiva === id ? "text-[#A2E317]" : "text-zinc-300 hover:text-[#A2E317]"
         }`;
 
     return (
         <>
-            <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/90 backdrop-blur">
+            <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
                     <div className="flex items-center gap-3">
                         <Link
@@ -123,7 +120,7 @@ export function Navbar() {
                             }}
                         >
                             <Image
-                                src="/images/logo-batata.PNG"
+                                src="/images/logos/logo-batata.webp"
                                 alt="Batata Barber Shop"
                                 width={80}
                                 height={80}
@@ -174,9 +171,8 @@ export function Navbar() {
                 </div>
 
                 <div
-                    className={`overflow-hidden border-t border-white/10 bg-black transition-all duration-300 md:hidden ${
-                        menuAberto ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
+                    className={`overflow-hidden border-t border-white/10 bg-black transition-all duration-300 md:hidden ${menuAberto ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                        }`}
                 >
                     <nav className="flex flex-col items-center justify-center px-6 py-6 text-sm font-semibold uppercase tracking-widest">
                         {links.map((link) => (
