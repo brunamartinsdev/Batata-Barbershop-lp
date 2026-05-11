@@ -1,8 +1,15 @@
 # Projeto de Extensão: Landing Page Batata Barber Shop
 
-Este projeto é uma landing page de alta performance desenvolvida para a **Batata Barber Shop & Tattoo**. O objetivo principal foi criar uma presença digital moderna que respeitasse a identidade visual já consolidada da marca, unindo estética, funcionalidade e conversão.
+Este projeto é uma landing page moderna e responsiva desenvolvida para a Batata Barber Shop & Tattoo. O objetivo principal foi criar uma presença digital que respeitasse a identidade visual já consolidada da marca, unindo estética, funcionalidade e conversão.
 
 Este é o meu **Projeto Final de Extensão Universitária**, onde apliquei conceitos avançados de desenvolvimento Web focados em experiência do usuário (UX), acessibilidade e otimização técnica.
+
+---
+
+## 🌐 Deploy
+
+Projeto disponível em: https://batata-barbershop-lp.vercel.app/
+
 
 ---
 
@@ -38,8 +45,36 @@ Interface projetada com a metodologia **Mobile-First**. O layout adapta-se de fo
 
 ### ⚡ Performance & SEO
 - **Otimização de Imagens:** Uso do componente `next/image` para compressão automática e WebP.
-- **SEO:** Estrutura de cabeçalhos (H1-H6) planejada para indexação em motores de busca.
+- **SEO:** SEO: Estrutura semântica e hierarquia correta de headings planejada para indexação em motores de busca.
 - **Carregamento:** Priorização de recursos críticos para garantir um LCP (Largest Contentful Paint) baixo.
+
+---
+
+
+## 📊 Qualidade e Métricas
+
+O projeto foi otimizado utilizando as boas práticas recomendadas pelo ecossistema Next.js e pela auditoria Lighthouse.
+
+### Lighthouse Scores
+
+| Métrica        | Mobile | Desktop |
+|----------------|---------|----------|
+| Performance    | 93      | 100      |
+| Accessibility  | 100     | 100      |
+| Best Practices | 100     | 100      |
+| SEO            | 100     | 100      |
+
+### Otimizações aplicadas
+
+- Compressão automática de imagens com `next/image`
+- Conversão e carregamento em formato `.webp`
+- Priorização de recursos críticos com `priority`
+- Lazy Loading para conteúdo não crítico
+- Navegação acessível via teclado
+- Focus visível para acessibilidade
+- Estrutura semântica HTML5
+- Responsividade Mobile-First
+- Uso de animações otimizadas com Framer Motion
 
 ---
 
@@ -47,7 +82,7 @@ Interface projetada com a metodologia **Mobile-First**. O layout adapta-se de fo
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
+   git clone https://github.com/brunamartinsdev/Batata-Barbershop-lp.git
 
 2. Instale as dependências:
 
@@ -67,6 +102,8 @@ Interface projetada com a metodologia **Mobile-First**. O layout adapta-se de fo
 
 ## 📄 Licença e Uso
 Este projeto foi desenvolvido para fins acadêmicos e para uso real da barbearia mencionada. Todos os direitos de imagem e marca pertencem à Batata Barber Shop.
+
+Consulte o arquivo [LICENSE.md](./LICENSE.md).
 
 ## Autor
 Desenvolvido por **Bruna Martins Combat**
