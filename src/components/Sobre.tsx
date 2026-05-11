@@ -122,7 +122,7 @@ export function Sobre() {
                 <strong className="text-2xl font-black text-[#A2E317] md:text-4xl">
                   {item.value}
                 </strong>
-                <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.1em] text-zinc-500 md:text-[10px]">
+                <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.1em] text-zinc-300 md:text-[10px]">
                   {item.label}
                 </span>
               </motion.div>

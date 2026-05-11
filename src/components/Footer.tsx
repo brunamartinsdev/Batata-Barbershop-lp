@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, easeOut } from "framer-motion"; 
+import { motion, easeOut } from "framer-motion";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { SiGooglemaps } from "react-icons/si";
 import { AgendarModal } from "./AgendarModal";
@@ -13,7 +13,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, 
+      staggerChildren: 0.1,
     },
   },
 };
@@ -116,20 +116,35 @@ export function Footer() {
 
             <div className="flex gap-3">
               {[
-                { icon: <FaInstagram size={16} />, href: "https://www.instagram.com/batata.barbershop/" },
-                { icon: <FaWhatsapp size={16} />, href: "https://wa.me/5522992495516" },
-                { icon: <SiGooglemaps size={16} />, href: "https://maps.app.goo.gl/qRvVMrS2mcn2rF9F6" }
+                {
+                  icon: <FaInstagram size={16} />,
+                  href: "https://www.instagram.com/batata.barbershop/",
+                  label: "Siga a Batata Barber Shop no Instagram"
+                },
+                {
+                  icon: <FaWhatsapp size={16} />,
+                  href: "https://wa.me/5522992495516",
+                  label: "Fale conosco pelo WhatsApp"
+                },
+                {
+                  icon: <SiGooglemaps size={16} />,
+                  href: "https://maps.app.goo.gl/qRvVMrS2mcn2rF9F6",
+                  label: "Veja nossa localização no Google Maps"
+                }
               ].map((social, i) => (
                 <motion.a
                   key={i}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.label}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#A2E317]/30 bg-white/5 text-[#A2E317] transition-all duration-300 hover:border-[#A2E317] hover:bg-[#A2E317] hover:text-black"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#A2E317]/30 bg-white/5 text-[#A2E317] transition-all duration-300 hover:border-[#A2E317] hover:bg-[#A2E317] hover:text-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#A2E317] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 >
-                  {social.icon}
+                  <span aria-hidden="true">
+                    {social.icon}
+                  </span>
                 </motion.a>
               ))}
             </div>
@@ -152,9 +167,9 @@ export function Footer() {
           variants={itemVariants}
           className="flex flex-col items-center justify-between gap-6 pt-10 text-[10px] uppercase tracking-[0.3em] text-zinc-500 md:flex-row"
         >
-          <p className="text-center md:text-left">© 2026 Batata Barber Shop & Tattoo.</p>
+          <p className="text-center md:text-left text-zinc-400">© 2026 Batata Barber Shop & Tattoo.</p>
           <div className="flex items-center gap-2 text-[9px] tracking-[0.1em]">
-            <span className="opacity-60">Desenvolvido por</span>
+            <span className="text-zinc-400">Desenvolvido por</span>
             <strong className="text-zinc-300">Bruna Martins Combat</strong>
           </div>
         </motion.div>

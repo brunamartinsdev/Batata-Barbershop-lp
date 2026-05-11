@@ -137,6 +137,7 @@ export function Time() {
                             whileTap={{ scale: 0.9 }}
                             whileHover={{ scale: 1.05 }}
                             className="cursor-pointer flex h-11 w-11 items-center justify-center border border-white/40 bg-black text-white transition hover:bg-[#A2E317] hover:text-black"
+                            aria-label="Mover cards de barbeiros para esquerda"
                         >
                             <ChevronLeft size={22} strokeWidth={3} />
                         </motion.button>
@@ -146,6 +147,7 @@ export function Time() {
                             whileTap={{ scale: 0.9 }}
                             whileHover={{ scale: 1.05 }}
                             className="cursor-pointer flex h-11 w-11 items-center justify-center border border-white/40 bg-black text-white transition hover:bg-[#A2E317] hover:text-black"
+                            aria-label="Mover cards de barbeiros para direita"
                         >
                             <ChevronRight size={22} strokeWidth={3} />
                         </motion.button>
@@ -154,7 +156,10 @@ export function Time() {
 
                 <motion.div
                     ref={carouselRef}
-                    className="flex snap-x snap-mandatory overflow-x-auto pb-8 pt-4"
+                    tabIndex={0}
+                    role="region"
+                    aria-label="Carrossel de profissionais da equipe"
+                    className="flex snap-x snap-mandatory overflow-x-auto pb-8 pt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317] focus-visible:ring-inset"
                     style={{
                         scrollbarWidth: "none",
                         msOverflowStyle: "none",
@@ -234,9 +239,11 @@ export function Time() {
                 >
                     <button
                         onClick={() => setModalAberto(true)}
-                        className="cursor-pointer bg-[#A2E317] px-12 py-5 text-sm font-black uppercase tracking-[0.3em] text-black transition hover:scale-105 active:scale-95"
+                        className="cursor-pointer bg-[#A2E317] px-12 py-5 text-sm font-black uppercase tracking-[0.3em] text-black transition hover:scale-105 active:scale-95 outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                         style={{
-                            clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)"
+                            clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)",
+                            backgroundColor: "#A2E317",
+                            color: "#000000"
                         }}
                     >
                         Agendar Horário

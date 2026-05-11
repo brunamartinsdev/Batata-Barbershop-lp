@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Projeto de Extensão: Landing Page Batata Barber Shop
 
-## Getting Started
+Este projeto é uma landing page de alta performance desenvolvida para a **Batata Barber Shop & Tattoo**. O objetivo principal foi criar uma presença digital moderna que respeitasse a identidade visual já consolidada da marca, unindo estética, funcionalidade e conversão.
 
-First, run the development server:
+Este é o meu **Projeto Final de Extensão Universitária**, onde apliquei conceitos avançados de desenvolvimento Web focados em experiência do usuário (UX), acessibilidade e otimização técnica.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Identidade Visual & Estética
+O design foi construído seguindo as cores padrões da marca (**Preto**, **Branco** e o **Verde Neon** característico), incorporando elementos da estética **Neobrutalista**, como:
+- **Sombras Marcadas:** Uso de elevações sólidas e sombras sem desfoque (hard shadows).
+- **Contornos Definidos:** Bordas espessas que separam claramente as seções e elementos.
+- **Tipografia Forte:** Uso de fontes em negrito (Black) e em caixa alta para hierarquia visual impactante.
+- **Geometria Assimétrica:** Uso de *Clip-paths* e polígonos para criar um visual dinâmico e disruptivo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tecnologias Utilizadas
 
-## Learn More
+- **[Next.js](https://nextjs.org/)** - Framework React com App Router para renderização eficiente.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Estilização baseada em utilitários para consistência visual.
+- **[Framer Motion](https://www.framer.com/motion/)** - Biblioteca de animações para interações fluidas e efeitos de scroll.
+- **[Lucide React](https://lucide.dev/)** - Ícones minimalistas e leves.
+- **TypeScript** - Garantia de tipagem, facilitando a manutenção e segurança do código.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Pilares do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📱 Responsividade Total
+Interface projetada com a metodologia **Mobile-First**. O layout adapta-se de forma inteligente desde smartphones pequenos até monitores UltraWide, garantindo que a identidade visual não se perca em nenhuma resolução.
 
-## Deploy on Vercel
+### ♿ Acessibilidade (a11y)
+- **Semântica:** Uso rigoroso de tags HTML5 (`<header>`, `<section>`, `<main>`, `<footer>`).
+- **Navegação:** Preparado para navegação via teclado e compatível com leitores de tela.
+- **Imagens:** Todas as imagens possuem atributos `alt` descritivos.
+- **Legibilidade:** Contraste de cores otimizado para leitura em qualquer ambiente.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ⚡ Performance & SEO
+- **Otimização de Imagens:** Uso do componente `next/image` para compressão automática e WebP.
+- **SEO:** Estrutura de cabeçalhos (H1-H6) planejada para indexação em motores de busca.
+- **Carregamento:** Priorização de recursos críticos para garantir um LCP (Largest Contentful Paint) baixo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 Como executar o projeto
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
+
+2. Instale as dependências:
+
+   ```bash
+    npm install
+    # ou
+    yarn install
+
+3. Inicie o servidor de desenvolvimento:
+
+    ```bash
+        npm run dev
+        # ou
+        yarn dev
+
+4. Acesse: ``http://localhost:3000``
+
+## 📄 Licença e Uso
+Este projeto foi desenvolvido para fins acadêmicos e para uso real da barbearia mencionada. Todos os direitos de imagem e marca pertencem à Batata Barber Shop.
+
+## Autor
+Desenvolvido por **Bruna Martins Combat**
+
+**Projeto de Extensão - Faculdade Descomplica**

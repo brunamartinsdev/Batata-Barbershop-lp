@@ -57,7 +57,7 @@ export function Mapa() {
                         <div className="space-y-6">
                             <div>
                                 <h3 className="mb-2 flex items-center gap-2 text-sm font-black uppercase text-[#A2E317]">
-                                    <SiGooglemaps size={16} /> Endereço
+                                    <SiGooglemaps size={16} aria-hidden="true" role="presentation"/> Endereço
                                 </h3>
                                 <p className="text-xs leading-relaxed text-zinc-200">
                                     Rua Oliveira Botelho, 47 - Centro <br />
