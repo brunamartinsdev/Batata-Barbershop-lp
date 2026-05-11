@@ -54,6 +54,7 @@ export function Footer() {
                 alt="Batata Barber Shop & Tattoo"
                 width={70}
                 height={70}
+                sizes="70px"
                 className="h-auto w-14 object-contain"
               />
             </div>

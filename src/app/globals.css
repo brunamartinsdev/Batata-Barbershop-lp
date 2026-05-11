@@ -75,12 +75,20 @@ html {
   background: #A2E317;
   color: #000;
 }
-
 @keyframes shine {
   0% {
-    left: -30%;
+    transform: translateX(-100%);
   }
   100% {
-    left: 100%;
+    transform: translateX(350%);
   }
+}
+
+.animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #A2E317 !important;
+  outline-offset: 4px;
 }

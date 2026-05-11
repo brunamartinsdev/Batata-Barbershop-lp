@@ -35,10 +35,11 @@ export function Hero() {
                         <Image
                             src="/images/logos/logo-batata.webp"
                             alt="Batata Barber Shop & Tattoo"
-                            width={120}
-                            height={120}
-                            className="h-auto w-14 object-contain sm:w-16 md:w-18 lg:w-20"
+                            width={160}
+                            height={160}
                             priority
+                            sizes="(max-width: 768px) 60px, (max-width: 1024px) 80px, 120px"
+                            className="h-auto w-14 object-contain sm:w-16 md:w-18 lg:w-20"
                         />
                     </motion.div>
 
@@ -156,7 +157,7 @@ export function Hero() {
                                         playsInline
                                         className="h-full w-full object-cover brightness-75 transition duration-500 md:brightness-60 md:hover:brightness-100"
                                     >
-                                        <source src="/videos/barbearia.mp4" type="video/mp4" />
+                                        <source src="/videos/barbearia.webm" type="video/webm" />
                                     </video>
                                 </div>
                             </motion.div>

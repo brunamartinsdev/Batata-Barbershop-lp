@@ -63,6 +63,7 @@ export function Galeria() {
                                 src={foto.src}
                                 alt={foto.alt}
                                 fill
+                                sizes="(max-width: 768px) 50vw, 25vw"
                                 className="object-cover grayscale transition duration-700 group-hover:scale-110 group-hover:grayscale-0"
                             />
 

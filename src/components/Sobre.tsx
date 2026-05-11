@@ -25,21 +25,23 @@ export function Sobre() {
           className="relative mx-auto w-full max-w-[320px] sm:max-w-[420px] md:max-w-[400px]"
         >
           <div className="pointer-events-none absolute -right-1 -top-1 z-20 h-12 w-12 border-r-4 border-t-4 border-[#A2E317] md:-right-2 md:-top-2" />
+
           <div className="pointer-events-none absolute -bottom-1 -left-1 z-20 h-12 w-12 border-b-4 border-l-4 border-[#A2E317] md:-bottom-2 md:-left-2" />
 
           <div
             className="relative aspect-[4/5] overflow-hidden bg-zinc-900 shadow-2xl"
             style={{
-              clipPath: "polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%)",
+              clipPath:
+                "polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%)",
             }}
           >
             <Image
               src="/images/sobre/sobre.webp"
               alt="Fachada da barbearia"
               fill
-              className="object-cover brightness-50 transition duration-500 hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
+              quality={65}
+              sizes="(max-width: 768px) 90vw, 400px"
+              className="object-cover brightness-50 transition duration-500 hover:scale-[1.02]"
             />
           </div>
 
@@ -48,24 +50,26 @@ export function Sobre() {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="absolute -bottom-6 -right-4 z-30 w-[40%] flex flex-col items-end md:-bottom-10 md:-right-8"
+            className="absolute -bottom-6 -right-4 z-30 flex w-[40%] flex-col items-end md:-bottom-10 md:-right-8"
           >
-            <div className="mb-2 bg-black/80 px-2 py-1 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm border-r-2 border-[#A2E317] whitespace-nowrap">
+            <div className="mb-2 whitespace-nowrap border-r-2 border-[#A2E317] bg-black/80 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm md:text-[10px]">
               Tiago &quot;Batata&quot; • Fundador
             </div>
 
             <div
-              className="relative w-full aspect-square overflow-hidden border border-white/10 shadow-2xl"
+              className="relative aspect-square w-full overflow-hidden border border-white/10 shadow-2xl"
               style={{
-                clipPath: "polygon(12% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 12%)",
+                clipPath:
+                  "polygon(12% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 12%)",
               }}
             >
               <Image
                 src="/images/sobre/fundador.webp"
                 alt="Tiago Batata atendendo"
                 fill
-                className="object-cover transition duration-500 hover:scale-110"
+                quality={70}
                 sizes="200px"
+                className="object-cover transition duration-500 hover:scale-[1.03]"
               />
             </div>
           </motion.div>
@@ -116,12 +120,13 @@ export function Sobre() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`flex flex-col justify-center border border-white/10 bg-zinc-950 p-4 text-center transition-all hover:border-[#A2E317]/40 hover:bg-zinc-900/50 ${item.hideMobile ? "hidden sm:flex" : "flex"
-                  }`}
+                className={`border border-white/10 bg-zinc-950 p-4 text-center transition-all hover:border-[#A2E317]/40 hover:bg-zinc-900/50 ${item.hideMobile ? "hidden sm:flex" : "flex"
+                  } flex-col justify-center`}
               >
                 <strong className="text-2xl font-black text-[#A2E317] md:text-4xl">
                   {item.value}
                 </strong>
+
                 <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.1em] text-zinc-300 md:text-[10px]">
                   {item.label}
                 </span>
@@ -131,12 +136,12 @@ export function Sobre() {
         </motion.div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317]/40 to-transparent" />
 
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A2E317] to-transparent blur-md opacity-60" />
 
-        <div className="absolute top-0 left-[-30%] h-full w-[30%] bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shine_3s_linear_infinite]" />
+        <div className="absolute top-0 left-[-30%] h-full w-[30%] animate-[shine_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
       </div>
     </section>
   );

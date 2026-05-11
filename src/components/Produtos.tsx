@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 const linhasProdutos = [
     {
-        nome:"Linha Kannep",
-        descricao:"Linha completa com leave-in, shampoo detox, condicionador detox e óleo para barba para cuidado, hidratação e finalização.",
-        imagem:"/images/produtos/kannep.webp",
+        nome: "Linha Kannep",
+        descricao: "Linha completa com leave-in, shampoo detox, condicionador detox e óleo para barba para cuidado, hidratação e finalização.",
+        imagem: "/images/produtos/kannep.webp",
     },
     {
-        nome:"Linha Turbo Dil",
-        descricao:"Linha voltada para crescimento capilar e da barba, com tônicos que estimulam os fios e fortalecem desde a raiz.",
-        imagem:"/images/produtos/dil.webp",
+        nome: "Linha Turbo Dil",
+        descricao: "Linha voltada para crescimento capilar e da barba, com tônicos que estimulam os fios e fortalecem desde a raiz.",
+        imagem: "/images/produtos/dil.webp",
     },
     {
-        nome:"Linha Goot Wood",
-        descricao:"Linha premium para barba com balm e óleo que hidratam, alinham e garantem maciez e controle no dia a dia.",
-        imagem:"/images/produtos/goot.webp",
+        nome: "Linha Goot Wood",
+        descricao: "Linha premium para barba com balm e óleo que hidratam, alinham e garantem maciez e controle no dia a dia.",
+        imagem: "/images/produtos/goot.webp",
     },
     {
-        nome:"Linha Nerk",
-        descricao:"Linha completa com pomadas, sprays e tratamentos para finalização, fixação e cuidados do cabelo no dia a dia.",
-        imagem:"/images/produtos/nerk.webp",
+        nome: "Linha Nerk",
+        descricao: "Linha completa com pomadas, sprays e tratamentos para finalização, fixação e cuidados do cabelo no dia a dia.",
+        imagem: "/images/produtos/nerk.webp",
     },
 ];
 
@@ -46,11 +46,16 @@ const cardVariant = {
 };
 
 
+const btnStyle = {
+    clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)",
+};
+
 export function Produtos() {
     return (
         <section
             id="produtos"
-            className="relative scroll-mt-28 bg-black px-4 py-16 text-white md:px-10 md:py-20 lg:px-16"
+            tabIndex={0}
+            className="relative scroll-mt-28 bg-black px-4 py-16 text-white md:px-10 md:py-20 lg:px-16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317]"
         >
             <div className="mx-auto max-w-7xl">
                 <motion.div
@@ -84,7 +89,8 @@ export function Produtos() {
                 </motion.div>
 
                 <motion.div
-                    className="mb-10 flex flex-col items-center justify-center gap-4 border border-white/10 bg-zinc-950 p-6 md:flex-row md:justify-between md:p-8"
+                    tabIndex={0}
+                    className="mb-10 flex flex-col items-center justify-center gap-4 border border-white/10 bg-zinc-950 p-6 md:flex-row md:justify-between md:p-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317]"
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
@@ -97,6 +103,8 @@ export function Produtos() {
                             width={80}
                             height={80}
                             className="h-auto w-16 md:w-24 object-contain grayscale"
+                            loading="lazy"
+                            fetchPriority="low"
                         />
                         <div>
                             <h3 className="text-lg font-bold uppercase text-[#A2E317]">
@@ -124,7 +132,9 @@ export function Produtos() {
                             key={linha.nome}
                             variants={cardVariant}
                             whileHover={{ y: -5 }}
-                            className="group relative flex flex-col overflow-hidden border border-white/5 bg-zinc-950 transition-colors hover:border-[#A2E317]/40"
+                            tabIndex={0}
+                            role="button"
+                            className="group relative flex flex-col overflow-hidden border border-white/5 bg-zinc-950 transition-colors hover:border-[#A2E317]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317]"
                         >
                             <div className="relative aspect-[4/5] w-full overflow-hidden bg-zinc-900">
                                 <Image
@@ -132,6 +142,8 @@ export function Produtos() {
                                     alt={linha.nome}
                                     fill
                                     className="object-cover transition duration-500 group-hover:scale-110"
+                                    loading="lazy"
+                                    fetchPriority="low"
                                     sizes="(max-width: 768px) 50vw, 25vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
@@ -162,13 +174,11 @@ export function Produtos() {
                     viewport={{ once: true }}
                 >
                     <motion.a
-                        href="https://wa.me/5522992495516?text=..."
+                        href="https://wa.me/5522992495516?text=Olá%20!%20Quero%20verificar%20a%20disponibilidade%20dos%20produtos%20da%20Embaixador%20Cosméticos."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full md:w-auto bg-[#A2E317] px-6 py-4 text-center text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-black"
-                        style={{
-                            clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)",
-                        }}
+                        style={btnStyle}
                     >
                         Ver preços no WhatsApp
                     </motion.a>

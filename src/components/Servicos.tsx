@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { motion } from "framer-motion";
-import { AgendarModal } from "./AgendarModal";
+import dynamic from "next/dynamic";
+
+// Lazy loading: Remove o peso do modal do bundle inicial da página
+const AgendarModal = dynamic(() => import("./AgendarModal").then(mod => mod.AgendarModal), { ssr: false });
 
 type ItemLista = {
     titulo: string;
@@ -113,7 +116,8 @@ const listItemVariant = {
     visible: { opacity: 1, y: 0 },
 };
 
-function ListaPrecos({
+// O memo evita que a lista inteira de serviços seja renderizada novamente ao abrir/fechar o modal
+const ListaPrecos = memo(function ListaPrecos({
     titulo,
     itens,
 }: {
@@ -147,7 +151,8 @@ function ListaPrecos({
                         key={item.titulo}
                         variants={listItemVariant}
                         transition={{ duration: 0.45, ease: "easeOut" }}
-                        className={`flex items-center justify-between gap-4 px-5 py-4 transition-colors duration-300 hover:bg-white/[0.03] ${index !== itens.length - 1 ? "border-b border-white/10" : ""
+                        tabIndex={0}
+                        className={`flex items-center justify-between gap-4 px-5 py-4 transition-colors duration-300 hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317] ${index !== itens.length - 1 ? "border-b border-white/10" : ""
                             }`}
                     >
                         <div>
@@ -167,18 +172,23 @@ function ListaPrecos({
             </motion.div>
         </motion.div>
     );
-}
+});
+
+const btnStyle = {
+    clipPath: "polygon(12% 0, 100% 0, 100% 70%, 88% 100%, 0 100%, 0 30%)",
+};
 
 export function Servicos() {
     const [modalAberto, setModalAberto] = useState(false);
 
-    const abrirModal = () => setModalAberto(true);
-    const fecharModal = () => setModalAberto(false);
+    const abrirModal = useCallback(() => setModalAberto(true), []);
+    const fecharModal = useCallback(() => setModalAberto(false), []);
 
     return (
         <section
             id="services"
-            className="relative overflow-hidden bg-zinc-950 px-6 py-16 text-white md:px-10 md:py-20 lg:px-16"
+            tabIndex={0}
+            className="relative overflow-hidden bg-zinc-950 px-6 py-16 text-white md:px-10 md:py-20 lg:px-16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317]"
         >
             <div className="mx-auto max-w-7xl">
                 <motion.div
@@ -246,7 +256,8 @@ export function Servicos() {
                                     variants={listItemVariant}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                     whileHover={{ y: -6, scale: 1.01 }}
-                                    className={`relative flex h-full overflow-hidden border p-6 transition duration-300 ${pacote.destaque
+                                    tabIndex={0}
+                                    className={`relative flex h-full overflow-hidden border p-6 transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317] ${pacote.destaque
                                         ? "border-[#A2E317] bg-[#A2E317] text-black shadow-[0_0_30px_rgba(162,227,23,0.18)]"
                                         : "border-white/10 bg-black text-white hover:border-[#A2E317]/60"
                                         }`}
@@ -312,7 +323,8 @@ export function Servicos() {
                                         key={item}
                                         variants={listItemVariant}
                                         transition={{ duration: 0.4, ease: "easeOut" }}
-                                        className="flex items-start gap-3"
+                                        tabIndex={0}
+                                        className="flex items-start gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2E317] rounded-sm"
                                     >
                                         <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#A2E317]" />
                                         <p className="text-sm leading-relaxed text-zinc-300">
@@ -338,10 +350,7 @@ export function Servicos() {
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                         className="cursor-pointer bg-[#A2E317] px-8 py-3 text-xs font-black uppercase tracking-[0.3em] text-black transition hover:brightness-110"
-                        style={{
-                            clipPath:
-                                "polygon(12% 0, 100% 0, 100% 70%, 88% 100%, 0 100%, 0 30%)",
-                        }}
+                        style={btnStyle}
                     >
                         Agendar agora
                     </motion.button>

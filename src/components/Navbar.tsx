@@ -123,7 +123,8 @@ export function Navbar() {
                                 src="/images/logos/logo-batata.webp"
                                 alt="Batata Barber Shop"
                                 width={80}
-                                height={80}
+                                height={80} 
+                                sizes="120px"
                                 className="h-14 w-auto object-contain"
                             />
                         </Link>
