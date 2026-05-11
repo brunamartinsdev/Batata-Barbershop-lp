@@ -38,7 +38,7 @@ O design foi construído seguindo as cores padrões da marca (**Preto**, **Branc
 Interface projetada com a metodologia **Mobile-First**. O layout adapta-se de forma inteligente desde smartphones pequenos até monitores UltraWide, garantindo que a identidade visual não se perca em nenhuma resolução.
 
 ### ♿ Acessibilidade (a11y)
-- **Semântica:** Uso rigoroso de tags HTML5 (`<header>`, `<section>`, `<main>`, `<footer>`).
+- **Semântica:** Uso de tags HTML5 (`<header>`, `<section>`, `<main>`, `<footer>`).
 - **Navegação:** Preparado para navegação via teclado e compatível com leitores de tela.
 - **Imagens:** Todas as imagens possuem atributos `alt` descritivos.
 - **Legibilidade:** Contraste de cores otimizado para leitura em qualquer ambiente.
